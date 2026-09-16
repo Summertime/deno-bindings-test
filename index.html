@@ -2,10 +2,11 @@
 <div id=output></div>
 <script module>
 setInterval(async ()=>{
+  let response = undefined;
   try {
-    const response = await bindings.test("wow");
+    response = await bindings.test("wow");
   } catch (e) {
-    const response = e;
+    response = e;
   }
   const linediv = document.createElement('div');
   const output = document.querySelector('#output');
