@@ -1,0 +1,17 @@
+<!doctype html>
+<div id=output></div>
+<script module>
+setInterval(async ()=>{
+  try {
+    const response = await bindings.test("wow");
+  } catch (e) {
+    const response = e;
+  }
+  const linediv = document.createElement('div');
+  const output = document.querySelector('#output');
+  linediv.append(String(response));
+  output.append(linediv);
+  while (output.childNodes.length>50){
+    output.removeChild(output.firstChild);
+  }
+}, 1000)
